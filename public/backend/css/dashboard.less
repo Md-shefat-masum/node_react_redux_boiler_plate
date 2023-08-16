@@ -1,0 +1,38 @@
+body,
+html {
+    margin: 0;
+    outline: 0;
+}
+
+div {
+    box-sizing: border-box;
+}
+
+.app_body {
+    width: 100vw;
+    height: 100vh;
+    display: grid;
+    grid-template-columns: 300px 1fr;
+
+    .left {
+        background-color: rgb(228, 228, 228);
+        .logo{
+            height: 60px;
+            background-color: #f1f1f1;
+        }
+        nav {}
+    }
+
+    .right {
+        display: grid;
+        grid-template-rows: 60px 1fr;
+
+        header {
+            background-color: rgb(180, 180, 180);
+        }
+
+        main {
+            background-color: #f1f1f1;
+        }
+    }
+}

@@ -4,7 +4,6 @@ const categoryController = require("../../app/controllers/backend/category.contr
 const router = express.Router();
 
 router
-	.use(isAuthMiddleware())
 	.get("/dashboard/category", categoryController.all)
 	.get("/dashboard/category/create", categoryController.create)
 	.post("/dashboard/category/create", categoryController.store)

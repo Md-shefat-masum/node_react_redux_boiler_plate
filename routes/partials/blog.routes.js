@@ -4,7 +4,6 @@ const blogController = require("../../app/controllers/backend/blog.controller");
 const router = express.Router();
 
 router
-	.use(isAuthMiddleware())
 	.get("/dashboard/blog", blogController.all)
 	.get("/dashboard/blog/create", blogController.create)
 	.post("/dashboard/blog/create", blogController.store)
