@@ -1,3 +1,4 @@
+import { useState, useEffect } from "react"
 var React = require('react');
 import { createRoot } from 'react-dom/client';
 import {
@@ -64,7 +65,51 @@ function About() {
     return <h1>About</h1>
 }
 function Contact() {
-    return <h1>Contact</h1>
+
+    var roles = ["admin", "user", "staff", "roleex", "roleex2"]
+    const [selected, setSelected] = useState([])
+
+    useEffect(() => {
+        setSelected(["admin", "roleex", "roleex2"])
+    }, [])
+
+    function deleteRole(data) {
+        event.stopPropagation();
+        setSelected(selected.filter(i => i != data));
+    }
+    function addRole(data) {
+        event.stopPropagation();
+        setSelected([...selected, data]);
+    }
+    return <div>
+        <div style={{ display: "flex", gap: "10px" }}>
+            {
+                selected.map(i => (
+                    <button key={i}>
+                        {i}
+                        <span onClick={() => deleteRole(i)}>delete</span>
+                    </button>
+                ))
+            }
+        </div>
+        <ul>
+            {
+                roles?.map(i => <li  key={i}>
+                    <span onClick={() => addRole(i)}>
+                        {i}
+                    </span>
+                    
+                </li>)
+            }
+        </ul>
+        <select multiple={true} defaultValue={selected} style={{ height: '200px', width: '400px' }}>
+            <option>select</option>
+            {
+                roles?.map(i => <option key={i}>{i}</option>)
+            }
+        </select>
+        Contact
+    </div>
 }
 function Home() {
     const count = useSelector((state) => state.counter.value)
