@@ -1,0 +1,32 @@
+body,
+html {
+  margin: 0;
+  outline: 0;
+}
+div {
+  box-sizing: border-box;
+}
+.app_body {
+  width: 100vw;
+  height: 100vh;
+  display: grid;
+  grid-template-columns: 300px 1fr;
+}
+.app_body .left {
+  background-color: #e4e4e4;
+}
+.app_body .left .logo {
+  height: 60px;
+  background-color: #f1f1f1;
+}
+.app_body .right {
+  display: grid;
+  grid-template-rows: 60px 1fr;
+}
+.app_body .right header {
+  background-color: #b4b4b4;
+}
+.app_body .right main {
+  background-color: #f1f1f1;
+}
+/*# sourceMappingURL=./dashboard.css.map */

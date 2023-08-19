@@ -1,18 +1,14 @@
-<%- include('../layouts/dashboard/head') %>
-<%- include('../layouts/dashboard/top_nav') %>
-<%- include('../layouts/dashboard/main_content_top_html') %>
-    <div id="layoutSidenav_content">
-        <main>
-            <div class="container-fluid px-4">
-                <h5 class="mt-4">Static Navigation</h5>
-                <ol class="breadcrumb mb-4">
-                    <li class="breadcrumb-item"><a href="/dashboard">Dashboard</a></li>
-                    <li class="breadcrumb-item active">Static Navigation</li>
-                </ol>
-                <div >
-                    <h1>Dashboard content</h1>
-                </div>
-            </div>
-        </main>
-    </div>
-<%- include('../layouts/dashboard/main_content_bottom_html') %>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="/backend/css/dashboard.css">
+    <script src="/backend/js/axios.js"></script>
+    <script src="/backend/js/dashboard.js" defer></script>
+</head>
+<body>
+    <div id="app"></div>
+</body>
+</html>
