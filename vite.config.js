@@ -8,7 +8,7 @@ export default defineConfig({
     plugins: [react()],
     resolve: {
         alias: {
-            src: path.resolve("./src/main.jsx"),
+            src: path.resolve("./public/backend/react/index.jsx"),
         }
     },
     publicDir: false,
@@ -17,7 +17,7 @@ export default defineConfig({
         manifest: false,
         sourcemap: true,
         rollupOptions: {
-            input: resolve(__dirname, 'src/main.jsx'),
+            input: resolve(__dirname, 'public/backend/react/index.jsx'),
             output: {
                 entryFileNames: 'react-dashboard.js',
             },
@@ -25,7 +25,7 @@ export default defineConfig({
     },
     esbuild: {
         loader: 'jsx',
-        include: /src\/.*\.jsx?$/,
+        include: /public\/backend\/react\/.*\.jsx?$/,
         exclude: [],
     },
     optimizeDeps: {
@@ -35,7 +35,7 @@ export default defineConfig({
                     name: 'load-js-files-as-jsx',
                     setup(build) {
                         build.onLoad(
-                            { filter: /src\\.*\.js$/ },
+                            { filter: /public\/backend\/react\/.*\.js$/ },
                             async (args) => ({
                                 loader: 'jsx',
                                 contents: await fs.readFile(args.path, 'utf8'),

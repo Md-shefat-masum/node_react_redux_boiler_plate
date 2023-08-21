@@ -26,6 +26,22 @@ function All() {
                     })
                 }
             </ul>
+            <div className="card">
+                <div className="card-header"></div>
+                <div className="card-body">
+                    <div className="dashboard_table">
+                        <div className="theader">
+                            <div className="col"><input type="checkbox" /></div>
+                            <div className="col">ID</div>
+                            <div className="col"></div>
+                        </div>
+                        <div className="tbody">
+
+                        </div>
+                    </div>
+                </div>
+                <div className="card-footer"></div>
+            </div>
         </>
     )
 }

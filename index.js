@@ -8,11 +8,12 @@ const mongoose = require("mongoose");
 const { db_url } = require("./configs/db.config");
 var cookieParser = require('cookie-parser')
 const formData = require('express-form-data');
+var cors = require('cors')
 
 // parse application/x-www-form-urlencoded
 // server.use(bodyParser.urlencoded({ extended: false }));
 server.use(cookieParser())
-
+server.use(cors())
 // parse application/json 01965522673
 server.use(bodyParser.json());
 server.set('json spaces', 4);
@@ -58,6 +59,7 @@ server.use(allRoutes());
 // 	});
 
 // const db_url = "mongodb+srv://mongo:0h4lYcX9RCOo8pHn@cluster0.gn949by.mongodb.net/blogDB";
+
 
 mongoose.connect(db_url)
 	.then(()=>{

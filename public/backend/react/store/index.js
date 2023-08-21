@@ -1,8 +1,8 @@
 import counterSlice from "../views/pages/counter/config/store";
 import userSlice from "../views/pages/users/config/store";
 import blogSlice from "../views/pages/blog/config/store";
+import { configureStore } from "@reduxjs/toolkit";
 
-const { configureStore } = require("@reduxjs/toolkit");
 
 const store = configureStore({
     reducer: {

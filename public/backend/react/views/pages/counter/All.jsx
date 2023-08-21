@@ -1,6 +1,6 @@
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { counterSlice } from './config/store'
+import counterSlice  from './config/store'
 
 function All() {
     const count = useSelector((state) => state.counter?.value)

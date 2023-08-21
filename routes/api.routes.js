@@ -7,4 +7,8 @@ router.get('/api/v1/users',async function(req,res,next){
     return res.json(users);
 })
 
+router.post('/api/test-data',function(req,res){
+    return res.json(req.body);
+})
+
 module.exports = () => router;
