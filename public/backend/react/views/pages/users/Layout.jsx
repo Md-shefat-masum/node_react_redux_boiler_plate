@@ -6,9 +6,11 @@ function Layout() {
     return (
         <>
             <div className="bread_cumb">
-                <h2>{setup.layout_title}</h2>
+                <h2 className="heading">{setup.layout_title}</h2>
             </div>
-            <Outlet></Outlet>
+            <div className="content_body">
+                <Outlet></Outlet>
+            </div>
         </>
     )
 }

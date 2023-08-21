@@ -2,7 +2,6 @@ nav {
     ul {
         li {
             margin-bottom: 5px;
-
             .nav_link {
                 border-radius: 5px;
                 display: flex;
@@ -13,6 +12,12 @@ nav {
                 &.active {
                     background-color: var(--black_300);
                     color: var(--black_900);
+                    font-weight: 700;
+
+                    .dark & {
+                        background-color: var(--black_600);
+                        color: var(--black_400);
+                    }
                 }
 
                 .drop_down_title,
@@ -30,6 +35,7 @@ nav {
 
                     .text {
                         font-size: 16px;
+                        letter-spacing: 1.5px;
 
                         &::first-letter {
                             text-transform: capitalize;
@@ -37,17 +43,28 @@ nav {
                     }
                 }
 
-                .more{
+                .more {
                     cursor: pointer;
                 }
 
             }
 
+            &:has(>.nav_link.active){
+                ul{
+                    display: block;
+                }
+            }
             ul {
-                padding-left: 30px;
+                padding-left: 20px;
+                margin-top: 15px;
+                margin-bottom: 30px;
+                display: none;
 
                 li {
                     .nav_link {
+                        &:hover {
+                            background-color: unset;
+                        }
 
                         a {
                             padding: 3px 0px;
@@ -63,13 +80,30 @@ nav {
                             }
                         }
 
+                        &.active,
                         &:hover {
                             background: unset;
+                            .dark &{
+                                // background-color: var(--black_600);
+                                background-color: unset;
+                            }
                             color: var(--black_900);
+
                             a {
-                                font-weight: 600;
                                 .icon {
-                                    font-weight: 800;
+                                    font-weight: 400;
+                                    position: relative;
+                                    font-size: 25px;
+                                    &::after{
+                                        content: '\e315';
+                                        position: absolute;
+                                        top: 0;
+                                        left: 0;
+                                        background-color: var(--black_50);
+                                        .dark &{
+                                            background-color: var(--black_800);
+                                        }
+                                    }
                                 }
                             }
                         }

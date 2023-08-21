@@ -12,18 +12,24 @@
 
     /* Track */
     &::-webkit-scrollbar-track {
-        background: var(--brand_color2);
+        background: var(--black_200);
+        .dark &{
+            background: var(--black_400);
+        }
         border-radius: 25px;
     }
 
     /* Handle */
     &::-webkit-scrollbar-thumb {
-        background: var(--brand_color);
+        background: var(--black_400);
+        .dark &{
+            background: var(--black_700);
+        }
         border-radius: 25px;
     }
 
     /* Handle on hover */
     &::-webkit-scrollbar-thumb:hover {
-        background: var(--brand_white2);
+        background: var(--black_600);
     }
 }

@@ -5,9 +5,17 @@
     grid-template-columns: 300px 1fr;
     background-color: var(--black_300);
 
+    .dark & {
+        background-color: var(--black_900);
+    }
+
     .left {
         background-color: var(--black_50);
         border-right: 1px solid var(--offwhite);
+        .dark & {
+            background-color: var(--black_800);
+        }
+
         .logo {
             height: 60px;
             background-color: var(--black_600);
@@ -36,12 +44,28 @@
             margin-bottom: 0;
             background-color: var(--black_50);
             border-radius: 5px;
+            .dark & {
+                background-color: var(--black_700);
+            }
         }
         
         main {
-            margin: 10px;
-            background-color: var(--black_50);
-            border-radius: 5px;
+            .bread_cumb{
+                margin: 20px 10px;
+                .heading{
+                    font-size: 25px;
+                    text-transform: capitalize;
+                    font-weight: bold;
+                }
+            }
+            .content_body{
+                margin: 10px;
+                background-color: var(--black_50);
+                border-radius: 5px;
+                .dark & {
+                    background-color: var(--black_700);
+                }
+            }
         }
     }
 }

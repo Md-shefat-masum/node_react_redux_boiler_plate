@@ -1,58 +1,42 @@
-import React from 'react'
-import { Link, Outlet } from 'react-router-dom'
+import React, { useEffect } from 'react'
+import { Link, Outlet, useLocation } from 'react-router-dom'
+import updateNavActive from './hooks/updateNavActive';
+import SingleLink from './components/SingleLink';
+import DropDownLink from './components/DropDownLink';
 
 function DashboardLayout() {
+    const rlocation = useLocation();
+    useEffect(() => {
+        updateNavActive();
+    }, [rlocation]);
+
     return (
         <>
             <div className="app_body">
                 <div className="left">
                     <div className="logo">
-                        <a href="#/">Dashboard</a>
+                        <a href="#/">Admin Panel</a>
                     </div>
                     <nav>
                         <ul>
-                            
+                            <SingleLink to={'/'} text={'Dashboard'} icon={'monitoring'}></SingleLink>
+
                             <li>
-                                <div className="nav_link">
-                                    <div className="drop_down_title">
-                                        <span class="material-symbols-outlined icon fill">
-                                            supervisor_account
-                                        </span>
-                                        <span class="text">
-                                            Users
-                                        </span>
-                                    </div>
-                                    <div className="more">
-                                        <span className="material-symbols-outlined fill">keyboard_arrow_down</span>
-                                    </div>
-                                </div>
+                                <DropDownLink text={'Users'} icon={'manage_accounts'}></DropDownLink>
                                 <ul>
-                                    <li>
-                                        <div className="nav_link">
-                                            <Link to={'/user'}>
-                                                <span class="material-symbols-outlined icon">
-                                                    trip_origin
-                                                </span>
-                                                <span class="text">
-                                                    All
-                                                </span>
-                                            </Link>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div className="nav_link">
-                                            <Link to={'/user'}>
-                                                <span class="material-symbols-outlined icon">
-                                                    trip_origin
-                                                </span>
-                                                <span class="text">
-                                                    Create
-                                                </span>
-                                            </Link>
-                                        </div>
-                                    </li>
+                                    <SingleLink to={'/user'} text={'all'} icon={'trip_origin'}></SingleLink>
+                                    <SingleLink to={'/user/create'} text={'create'} icon={'trip_origin'}></SingleLink>
                                 </ul>
                             </li>
+
+                            <li>
+                                <DropDownLink text={'Blogs'} icon={'data_table'}></DropDownLink>
+                                <ul>
+                                    <SingleLink to={'/blog'} text={'all'} icon={'trip_origin'}></SingleLink>
+                                    <SingleLink to={'/blog/create'} text={'create'} icon={'trip_origin'}></SingleLink>
+                                </ul>
+                            </li>
+
                         </ul>
                     </nav>
                 </div>
