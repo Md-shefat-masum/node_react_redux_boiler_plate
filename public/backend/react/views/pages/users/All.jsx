@@ -1,18 +1,20 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import setup from './config/setup';
-import dataStoreSlice from './config/store';
-
+import dataStoreSlice, { getUserData, getUserData2 } from './config/store';
+import CanvasDetails from './components/management/CanvasDetails';
 
 function All() {
     const data_store = useSelector((state) => state[setup.prefix]);
-    const { add } = dataStoreSlice.actions;
+    const { add, toggle_off_canvas_show, test_data } = dataStoreSlice.actions;
     const dispatch = useDispatch();
     useEffect(() => {
-        axios.get('/api/v1/users')
-            .then(res => {
-                dispatch(add(res.data));
-            })
+        // axios.get('/api/v1/users')
+        //     .then(res => {
+        //         dispatch(add(res.data));
+        //     })
+        dispatch(getUserData())
+        dispatch(getUserData2())
     }, []);
 
     return (
@@ -87,20 +89,20 @@ function All() {
                         </thead>
                         <tbody className="table-border-bottom-0">
                             {
-                                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0].map((i, index) => {
+                                data_store.all?.map((i, index) => {
                                     return (
-                                        <tr>
+                                        <tr key={i.id}>
                                             <td><input type="checkbox" className="form-check-input" /></td>
-                                            <td>1</td>
+                                            <td>{i.id}</td>
                                             <td>
-                                                <img src="/images/1.jpg" alt="Avatar" className="rounded-circle" style={{ height: '40px', width: '40px' }} />
+                                                <img src={i.related_images && i.related_images[0].image_link} alt="Avatar" className="rounded-circle" style={{ height: '40px', width: '40px' }} />
                                             </td>
                                             <td>
-                                                <span className="cursor_pointer">
-                                                    super admin
+                                                <span onClick={() => dispatch(toggle_off_canvas_show(true))} className="cursor_pointer">
+                                                    {i.product_name}
                                                 </span>
                                             </td>
-                                            <td>superadmin@gmail.com</td>
+                                            <td>{i.default_price}</td>
                                             <td>
                                                 016123
                                             </td>
@@ -207,6 +209,8 @@ function All() {
                     <div className="show-limit d-inline-block"><span>Total:</span> <span>6</span></div>
                 </div>
             </div>
+            <CanvasDetails></CanvasDetails>
+            
         </>
     )
 }

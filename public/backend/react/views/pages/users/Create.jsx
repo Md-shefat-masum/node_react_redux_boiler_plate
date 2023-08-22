@@ -1,4 +1,5 @@
 import React from 'react'
+import ModalManagement from './components/management/ModalManagement'
 
 function Create() {
     return (
@@ -17,6 +18,15 @@ function Create() {
                     <div className="row">
                         <div className="col-lg-8">
                             <form action="">
+                                <div className="form-group mb-5">
+                                    <div className="custom_form_el">
+                                        <label htmlFor="">Role</label>
+                                        <div>:</div>
+                                        <div>
+                                            <ModalManagement></ModalManagement>
+                                        </div>
+                                    </div>
+                                </div>
                                 {[
                                     "first name",
                                     "last name",
@@ -38,6 +48,7 @@ function Create() {
                                         </div>
                                     )
                                 })}
+
                             </form>
                         </div>
                     </div>

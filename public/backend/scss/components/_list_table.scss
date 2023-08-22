@@ -117,7 +117,7 @@
     .card-body {
         min-height: 300px;
         max-height: calc(100vh - 300px);
-        overflow-y: scroll;
+        overflow: auto;
         padding-top: 0;
         padding-bottom: 0;
         padding: 0;

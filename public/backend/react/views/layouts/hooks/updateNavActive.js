@@ -10,4 +10,8 @@ export default function(){
             parent_nav_link.classList.add('active');
         }
     }
+
+    if(window.location.hash === '#/'){
+        document.getElementById('app').classList.add('sidebar_hide');
+    }
 }
